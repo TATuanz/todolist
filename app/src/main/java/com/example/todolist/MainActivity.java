@@ -34,28 +34,16 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-}
-protected void onStart (){
-    super.onStart();
-    ListView lv = findViewById(R.id.listviewTask);
-    TaskAdapter adapter = new TaskAdapter (this,tasklist);
-    lv.setAdapter(adapter);
-}
-public class Adapter extends ArrayAdapter<Task>{
-    public TaskAdapter(Context context, ArrayList<Task> tasks ){super(context, 0, tasks);}
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent ){
-        Task t = getItem(position);
-        if (convertView == null)
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.task_item,parent,false);
-        TextView tvTaskName = (TextView) convertView.findViewById(R.id.tvTaskName);
-        TextView tvDeadline = (TextView) convertView.findViewById(R.id.tvDeadline);
-        TextView tvDuration = (TextView) convertView.findViewById(R.id.tvDuration);
-        TextView tvDescriptions = (TextView) convertView.findViewById(R.id.tvDescriptions);
-        tvTaskName .setText(t.name);
-        tvDeadline .setText(t.deadline.toString().substring(0,10));
-        tvDuration .setText(String.valueOf(t.duration));
-        tvDescriptions .setText(String.valueOf(t.descriptions));
-        return convertView;
+
+    protected void onStart() {
+        super.onStart();
+        ListView lv = findViewById(R.id.listviewTask);
+        TaskAdapter adapter = new TaskAdapter(this, taskList);
+        lv.setAdapter(adapter);
+    }
+
+    public void onClickAdd(View v) {
+        Intent i = new Intent(getApplicationContext(), AddTaskActivity.class);
+                startActivity(i);
     }
 }
