@@ -7,8 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -110,10 +108,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         result.moveToFirst();
 
-        String name = result.getString(1);
-        Date deadline = new Date(result.getLong(2));
-        int duration = result.getInt(3);
-        String description = result.getString(4);
+        String name = result.getString(result.getColumnIndex(NAME_COLUMN_NAME));
+        Date deadline = new Date(result.getLong(result.getColumnIndex(DEADLINE_COLUMN_NAME)));
+        int duration = result.getInt(result.getColumnIndex(DURATION_COLUMN_NAME));
+        String description = result.getString(result.getColumnIndex(DESCRIPTION_COLUMN_NAME));
 
         task = new Task(id, name, deadline, duration, description);
         

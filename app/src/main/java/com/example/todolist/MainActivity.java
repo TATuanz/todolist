@@ -1,17 +1,10 @@
 package com.example.todolist;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Adapter;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
@@ -22,7 +15,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
